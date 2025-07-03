@@ -1,0 +1,14 @@
+{
+    "employee": "staff",
+    "employee.plural": "staffs",
+    "cohort":"companion",
+    "cohort.plural": "companions",
+    "content": "material",
+    "content.plural": "materials",
+    "campaign":"movement",
+    "campaign.plural": "movements",
+    "template": "framework",
+    "template.plural":"frameworks",
+    "contentLibrary": "c lib",
+    "contentLibrary.plural": "c libs"
+}

@@ -1,0 +1,18 @@
+.badge {
+
+    &:has(.badge-cancel) {
+        padding-right: 0.125rem !important;
+    }
+    
+}
+
+.badge-cancel {
+
+    border-radius: 50% !important;
+    background-color: transparent;
+    margin-left: 0.5rem;
+
+    &:hover {
+        background-color: $white;
+    }
+}

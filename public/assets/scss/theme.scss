@@ -1,0 +1,67 @@
+// Main colors
+$primary: #ed7157;
+$secondary: #12344d;
+$success: #00A886;
+$info: #0f8cff;
+$warning: #ff8e2d;
+$danger: #fa3737;
+$gray: #394a56;
+
+$white: #ffffff;
+$black: #000000;
+
+// other colors
+$blue: #2C5CC5;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$lavender: #a675cc;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #dbb800;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+
+// Color variables
+$primary-color: #12344D;
+$secondary-color: #264966;
+$tertiary-color: #345C7C;
+$accent-color: #2C5CC5;
+$info-color: #92A2B1;
+$warning-color: #F89FA1;
+$danger-color: #D72D30;
+$muted-color: #EBEFF3;
+$border-muted: #CFD7DF;
+
+// Text colors
+$text-primary: #12344D;
+$text-muted: #92A2B1;
+$text-link: #2C5CC5;
+
+$gray-900: #12344D;
+
+// Gradients
+$gradient-primary: linear-gradient(91.32deg, #DA529A -3.36%, #ED7157 102.32%);
+//$gradient-secondary: linear-gradient(180deg, #FFFFFF 2.56%, #F5F7F9 95.75%);
+$gradient-danger: linear-gradient(180deg, #D72D30 2.56%, #C82124 95.75%);
+$gradient-warning: linear-gradient(180deg, #F89FA1 2.56%, #F2797B 95.75%);
+
+$gradient-secondary: linear-gradient(180deg, #264966 2.56%, #12344D 95.75%);
+$gradient-outline: linear-gradient(180deg, #FFFFFF 2.56%, #F5F7F9 95.75%);
+
+
+$text-size-sm: 0.75rem;
+$text-size: 0.875rem;
+$text-size-lg: 1rem;
+
+// Button Sizes
+$button-padding: 1rem $text-size-sm;
+$button-font-size: $text-size;
+$button-height: 2rem;
+$button-border-radius: 4px;
+
+// Font Settings
+$font-family-base: 'SF Pro Text', sans-serif;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;

@@ -1,0 +1,128 @@
+// Base button styles
+.button-base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $button-padding;
+  font-family: $font-family-base;
+  font-weight: $font-weight-semibold;
+  font-size: $button-font-size;
+  height: $button-height;
+  border-radius: $button-border-radius;
+  flex-grow: 0;
+  flex-shrink: 0;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+// Primary button
+.button-primary {
+  @extend .button-base;
+  background: $gradient-primary;
+  border: 1px solid $primary;
+  color: #FFFFFF !important;
+
+  &:hover {
+    background: $primary !important;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+// Secondary button
+.button-secondary {
+  @extend .button-base;
+  background: $gradient-secondary;
+  border: 1px solid $border-muted;
+  color: $primary-color;
+}
+
+// Tertiary button
+.button-tertiary {
+  @extend .button-base;
+  background: #F5F7F9;
+  border: 1px solid #F5F7F9;
+  color: $primary-color;
+}
+
+// Accent button with gradient and border
+.button-accent {
+  @extend .button-base;
+  background: $gradient-primary;
+  border: 2px solid $accent-color;
+  color: #FFFFFF;
+}
+
+// Disabled button
+.button-disabled {
+  @extend .button-base;
+  background: #EBEFF3;
+  border: 1px solid $border-muted;
+  color: $text-muted;
+  opacity: 0.5;
+}
+
+// Danger button
+.button-danger {
+  @extend .button-base;
+  background: $gradient-danger;
+  border: 1px solid $danger-color;
+  color: #FFFFFF;
+}
+
+// Warning button
+.button-warning {
+  @extend .button-base;
+  background: $gradient-warning;
+  border: 1px solid #F2797B;
+  color: #FFD0D6;
+}
+
+// Link button
+.button-link {
+  @extend .button-base;
+  background: none;
+  border: none;
+  color: $text-link;
+  text-decoration: underline;
+}
+
+
+
+.button-outline {
+
+
+  @extend .button-base;
+  background: $gradient-outline;
+  color: $dark !important;
+  font-weight: $font-weight-semibold !important;
+  font-size: $text-size !important;
+  border-color: $border-muted !important;
+  color: $text-primary !important;
+
+  &:hover {
+    background: #F5F7F9 !important;
+  }
+
+  &:disabled {
+    color: $info-color;
+    background: #EBEFF3 !important;
+
+    use {
+      fill: $info-color !important
+    }
+
+  }
+
+  &.show {
+    border: 2px solid $primary !important;
+    color: $primary !important;
+    background: #fff !important;
+
+    use {
+      fill: $primary !important;
+    }
+  }
+}

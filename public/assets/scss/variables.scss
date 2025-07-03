@@ -1,0 +1,53 @@
+@import "./theme.scss";
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../../assets/fonts/sf-pro-text-regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../../assets/fonts/sf-pro-text-bold.woff") format("woff");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../../assets/fonts/sf-pro-text-italic.ttf") format("ttf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../../assets/fonts/sf-pro-text-semibold.woff") format("woff");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../../assets/fonts/sf-pro-text-medium.woff") format("woff");
+}
+
+$font-family-base: "SF Pro Text", "Roboto", "Helvetica", "Arial",
+  sans-serif;
+$bg: #fafafa;
+$font-size: 16px;
+$login-background: linear-gradient(91.32deg, #da529a -3.36%, #ed7157 102.32%),
+  linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+
+$sidenav-width: 12rem;
+$sidenav-collapsed-width: 4.5rem;
+
+$gray-light: #f3f5f7;
+$gray-mid: #ebeff3;
+$bg-primary: #fef1e1;
+
+
+:root {
+  //CK Editor Variables
+  --ck-font-size-base: 12px !important;
+  --ck-line-height-base: 1.5 !important;
+  // marvel device variables
+  --size-divisor: 1.5;
+}

@@ -1,0 +1,26 @@
+.text-base {
+    font-size: $text-size !important;
+    line-height: 1.125rem !important;
+}
+
+.text-sm {
+    font-size: $text-size-sm !important;
+    line-height: 1rem !important;
+}
+
+.text-lg {
+    font-size: $text-size-lg;
+    line-height: 1.25rem;
+}
+
+.text-semibold {
+    font-weight: 600;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.text-link {
+    color: $text-link;
+}

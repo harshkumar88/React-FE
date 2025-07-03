@@ -1,0 +1,100 @@
+@media (max-width: 1366px) {
+  
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  
+}
+
+@media (max-width: 991px) {
+  .toast-container {
+    top: 0 !important;
+    right: 0 !important;
+    width: 100%;
+
+    .ngx-toastr {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+    height: 0;
+  }
+
+  /* Optional: show position indicator in red */
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+
+// Responsive font start
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+// Responsive font end

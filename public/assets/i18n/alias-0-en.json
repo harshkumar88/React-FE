@@ -1,0 +1,16 @@
+{
+  "employee": "employee",
+  "employee.plural": "employees",
+  "cohort": "group",
+  "cohort.plural": "groups",
+  "content": "content",
+  "content.plural": "contents",
+  "campaign": "campaign",
+  "campaign.plural": "campaigns",
+  "workflow": "workflow",
+  "workflow.plural": "workflows",
+  "template": "template",
+  "template.plural": "templates",
+  "contentLibrary": "content library",
+  "contentLibrary.plural": "content libraries"
+}
