@@ -5,9 +5,10 @@ import { Sidenav } from "../components/sidenav";
 const PrivateRoutes = () => {
   return (
     <div>
-      <Sidenav />
-      <Header />
-
+      <div className="flex h-screen">
+        <Sidenav />
+        <Header />
+      </div>
       <Outlet />
     </div>
   );
