@@ -1,0 +1,210 @@
+<div class="main">
+  <!-- Title and Description -->
+  <div>
+    <div class="pageTitle">{{ title }}</div>
+    <div class="desc">{{ desc }}</div>
+  </div>
+
+  <!-- Main container (dashed box area) -->
+  <div class="main-container">
+    <div class="dropdown-wrapper d-flex flex-column align-items-center">
+      <button
+        class="button-add-trigger d-flex justify-content-center align-items-center"
+        (click)="toggleDropdown()"
+        *ngIf="selectedTriggers.length === 0"
+      >
+        <svg
+          width="27"
+          height="27"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="16"
+            cy="16"
+            r="10"
+            stroke="white"
+            stroke-width="2"
+            fill="none"
+          />
+          <path
+            d="M20 16C20 16.3866 19.6866 16.7 19.3 16.7H16.7V19.3C16.7 19.6866 16.3866 20 16 20C15.6134 20 15.3 19.6866 15.3 19.3V16.7H12.7C12.3134 16.7 12 16.3866 12 16C12 15.6134 12.3134 15.3 12.7 15.3H15.3V12.7C15.3 12.3134 15.6134 12 16 12C16.3866 12 16.7 12.3134 16.7 12.7V15.3H19.3C19.6866 15.3 20 15.6134 20 16Z"
+            fill="white"
+          />
+        </svg>
+        {{ "automation.addTrigger" | translate }}
+      </button>
+      <div>
+        <div
+          class="trigger-dropdown"
+          *ngIf="showDropdown && selectedTriggers.length === 0"
+        >
+          <div
+            class="dropdown-item"
+            *ngFor="let option of dropdownOptions"
+            (click)="openOffCanvas(event)"
+          >
+            {{ option }}
+          </div>
+        </div>
+      </div>
+
+      <div
+        *ngIf="selectedTriggers.length > 0"
+        class="d-flex flex-col align-items-center"
+      >
+        <div
+          class="trigger-item mt-4"
+          *ngFor="let trigger of selectedTriggers; let i = index"
+        >
+          <ng-container [ngSwitch]="trigger.type">
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              <div class="labelNumber">{{ i + 1 }}</div>
+              <div *ngSwitchCase="'select'" class="option-container">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.5898 0.113281C12.3933 0.113281 12.205 0.191306 12.0661 0.33019C11.9272 0.469075 11.8492 0.657442 11.8492 0.853855C11.8492 3.03781 9.93628 3.81615 8.14631 3.81615H2.96229C2.17665 3.81615 1.42317 4.12825 0.867636 4.68378C0.312098 5.23932 0 5.99279 0 6.77844L0 8.25959C0.00161753 8.703 0.103282 9.14033 0.297416 9.53898C0.491551 9.93764 0.77315 10.2873 1.12123 10.562L3.76656 16.4659C3.95469 16.8888 4.26139 17.2481 4.64952 17.5004C5.03766 17.7526 5.49058 17.8869 5.95347 17.887C6.32177 17.8868 6.68415 17.7945 7.00765 17.6184C7.33115 17.4424 7.60548 17.1882 7.80568 16.8791C8.00588 16.57 8.12559 16.2157 8.15391 15.8485C8.18223 15.4813 8.11826 15.1128 7.96783 14.7766L6.33857 11.2219H8.14631C9.93628 11.2219 11.8492 12.0002 11.8492 14.1842C11.8492 14.3806 11.9272 14.569 12.0661 14.7078C12.205 14.8467 12.3933 14.9248 12.5898 14.9248C12.7862 14.9248 12.9745 14.8467 13.1134 14.7078C13.2523 14.569 13.3303 14.3806 13.3303 14.1842V0.853855C13.3303 0.657442 13.2523 0.469075 13.1134 0.33019C12.9745 0.191306 12.7862 0.113281 12.5898 0.113281ZM6.61851 15.3832C6.66756 15.4939 6.68819 15.6152 6.67853 15.736C6.66886 15.8568 6.62921 15.9732 6.56316 16.0748C6.49712 16.1763 6.40677 16.2598 6.3003 16.3176C6.19384 16.3755 6.07463 16.4058 5.95347 16.4059C5.77677 16.4058 5.6039 16.3543 5.45587 16.2578C5.30784 16.1613 5.19101 16.0239 5.11959 15.8623L3.04005 11.2219H4.70931L6.61851 15.3832ZM11.8492 10.9257C10.7911 10.1104 9.48109 9.69121 8.14631 9.74074H2.96229C2.56947 9.74074 2.19273 9.58469 1.91497 9.30692C1.6372 9.02915 1.48115 8.65241 1.48115 8.25959V6.77844C1.48115 6.38562 1.6372 6.00888 1.91497 5.73111C2.19273 5.45334 2.56947 5.2973 2.96229 5.2973H8.14631C9.48064 5.34787 10.7906 4.92999 11.8492 4.11608V10.9257ZM17.6997 11.5566C17.6563 11.6437 17.5961 11.7213 17.5226 11.7852C17.4492 11.849 17.3638 11.8977 17.2715 11.9285C17.1792 11.9593 17.0818 11.9716 16.9847 11.9647C16.8877 11.9578 16.7929 11.9319 16.7059 11.8884L15.2247 11.1478C15.0489 11.06 14.9152 10.906 14.853 10.7196C14.7908 10.5332 14.8051 10.3298 14.8929 10.154C14.9807 9.97819 15.1348 9.84447 15.3211 9.78226C15.5075 9.72003 15.711 9.7344 15.8868 9.8222L17.3679 10.5628C17.5428 10.6505 17.6759 10.8039 17.738 10.9894C17.8002 11.1749 17.7864 11.3775 17.6997 11.5529V11.5566ZM14.8929 4.89146C14.8494 4.80443 14.8235 4.70967 14.8166 4.61261C14.8097 4.51555 14.8221 4.41808 14.8529 4.32578C14.8837 4.23348 14.9324 4.14816 14.9962 4.07469C15.06 4.00123 15.1376 3.94105 15.2247 3.89761L16.7059 3.15704C16.8816 3.06924 17.0851 3.05487 17.2715 3.11709C17.4579 3.17931 17.6119 3.31303 17.6997 3.48882C17.7875 3.6646 17.8019 3.86807 17.7397 4.05445C17.6774 4.24084 17.5437 4.39487 17.3679 4.48266L15.8868 5.22324C15.7998 5.26675 15.705 5.29269 15.6079 5.29956C15.5109 5.30644 15.4134 5.29412 15.3211 5.2633C15.2288 5.23249 15.1435 5.18379 15.07 5.11999C14.9966 5.05619 14.9364 4.97853 14.8929 4.89146ZM14.8115 7.51902C14.8115 7.3226 14.8895 7.13424 15.0284 6.99535C15.1673 6.85647 15.3556 6.77844 15.552 6.77844H17.0332C17.2296 6.77844 17.418 6.85647 17.5569 6.99535C17.6957 7.13424 17.7738 7.3226 17.7738 7.51902C17.7738 7.71543 17.6957 7.9038 17.5569 8.04268C17.418 8.18156 17.2296 8.25959 17.0332 8.25959H15.552C15.3556 8.25959 15.1673 8.18156 15.0284 8.04268C14.8895 7.9038 14.8115 7.71543 14.8115 7.51902Z"
+                    fill="#12344D"
+                  />
+                </svg>
+                <select class="form-control select-basic">
+                  <option
+                    *ngFor="let opt of trigger.options"
+                    [value]="opt.value"
+                  >
+                    {{ opt.key }}
+                  </option>
+                </select>
+              </div>
+              <div *ngSwitchCase="'wait'" class="option-container">
+                <select class="form-control select-basic">
+                  <option *ngFor="let opt of trigger.time" [value]="opt.value">
+                    {{ opt.key }}
+                  </option>
+                </select>
+                <select class="form-control select-basic">
+                  <option *ngFor="let opt of trigger.units" [value]="opt.value">
+                    {{ opt.key }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div *ngSwitchDefault class="text-muted">
+              Unsupported trigger type
+            </div>
+          </ng-container>
+        </div>
+
+        <button
+          class="add-additional-btn d-flex justify-content-center align-items-center"
+          (click)="toggleDropdown()"
+          *ngIf="selectedTriggers.length > 0"
+        >
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_216_10975)">
+              <path
+                d="M11.9995 20.3996C9.85154 20.3996 7.70354 19.5836 6.05954 17.9396C2.78354 14.6636 2.78354 9.33561 6.05954 6.05961C7.64354 4.47561 9.75554 3.59961 11.9995 3.59961C14.2435 3.59961 16.3555 4.47561 17.9395 6.05961C19.5235 7.64361 20.3995 9.75561 20.3995 11.9996C20.3995 14.2436 19.5235 16.3556 17.9395 17.9396C16.3075 19.5836 14.1475 20.3996 11.9995 20.3996ZM11.9995 5.03961C10.1395 5.03961 8.38754 5.75961 7.07954 7.07961C5.75954 8.39961 5.03954 10.1396 5.03954 11.9996C5.03954 13.8596 5.75954 15.6116 7.07954 16.9196C9.79154 19.6316 14.2075 19.6316 16.9195 16.9196C18.2395 15.5996 18.9595 13.8596 18.9595 11.9996C18.9595 10.1396 18.2395 8.38761 16.9195 7.07961C15.5995 5.75961 13.8595 5.03961 11.9995 5.03961Z"
+                fill="#264966"
+              />
+              <path
+                d="M15.4552 11.2792H12.7192V8.54324C12.7192 8.14724 12.3952 7.82324 11.9992 7.82324C11.6032 7.82324 11.2792 8.14724 11.2792 8.54324V11.2792H8.54324C8.14724 11.2792 7.82324 11.6032 7.82324 11.9992C7.82324 12.3952 8.14724 12.7192 8.54324 12.7192H11.2792V15.4552C11.2792 15.8512 11.6032 16.1752 11.9992 16.1752C12.3952 16.1752 12.7192 15.8512 12.7192 15.4552V12.7192H15.4552C15.8512 12.7192 16.1752 12.3952 16.1752 11.9992C16.1752 11.6032 15.8512 11.2792 15.4552 11.2792Z"
+                fill="#264966"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_216_10975">
+                <rect
+                  width="19.2"
+                  height="19.2"
+                  fill="white"
+                  transform="translate(2.39941 2.39941)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+        <div>
+          <div class="trigger-dropdown" *ngIf="showDropdown">
+            <div
+              class="dropdown-item"
+              *ngFor="let option of additionalDropdownOptions"
+              (click)="handleDropdownClick(option, $event)"
+            >
+              {{ option }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer buttons -->
+  <div class="footer d-flex justify-content-end align-items-center">
+    <button type="button" class="button-outline">
+      {{ "save" | translate }}
+    </button>
+    <button type="submit" class="button-primary ml-2">
+      {{ "publish" | translate }}
+    </button>
+  </div>
+</div>
+
+<ng-template #event let-offcanvas>
+  <div class="offcanvas-header">
+    <div class="d-flex flex-column">
+      <div class="offcanvas-title">
+        {{ "automation.selectEvent" | translate }}
+      </div>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="offcanvas.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <app-select-event
+      (onClose)="offcanvas.close('Close click')"
+      (onSuccess)="offcanvas.close('Close click'); loadList()"
+    >
+    </app-select-event>
+  </div>
+</ng-template>
+
+<ng-template #wait let-offcanvas>
+  <div class="offcanvas-header">
+    <div class="d-flex flex-column">
+      <div class="offcanvas-title">
+        {{ "automation.selectWaitPeriod" | translate }}
+      </div>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="offcanvas.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <app-select-wait
+      (onClose)="offcanvas.close('Close click')"
+      (onSuccess)="offcanvas.close('Close click'); loadList()"
+    >
+    </app-select-wait>
+  </div>
+</ng-template>

@@ -1,5 +1,1 @@
-import React from "react";
-
-export const Automation = () => {
-    
-}
+export const Automation = () => {};

@@ -1,0 +1,26 @@
+::ng-deep ng-select .ng-select-container {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  font-size: 14px;
+  padding-left: 6px;
+}
+
+::ng-deep ng-select .ng-value {
+  font-weight: 400;
+}
+
+::ng-deep ng-select .ng-placeholder {
+  color: #aaa;
+}
+::ng-deep ng-select.ng-select .ng-placeholder {
+  color: #999; /* optional styling */
+  transition: opacity 0.2s;
+}
+
+::ng-deep
+  ng-select.ng-select.ng-select-single
+  .ng-select-container.ng-has-value
+  .ng-placeholder {
+  display: none !important;
+}

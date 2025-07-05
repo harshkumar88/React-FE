@@ -1,0 +1,93 @@
+<div class="entity-container">
+  <div class="entityFormContainer row" *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <!-- Name -->
+        <div class="col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label>{{ "automation.automationName" | translate }}</label
+            ><span class="text-danger">*</span>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+            />
+            <div
+              class="form-error"
+              *ngIf="
+                form.get('name')!.touched &&
+                form.get('name')!.hasError('required')
+              "
+            >
+              {{ "automation.automationName" | translate }}
+              {{ "isRequired" | translate }}
+            </div>
+            <div
+              class="form-error"
+              *ngIf="
+                form.get('name')!.touched &&
+                form.get('name')!.hasError('pattern')
+              "
+            >
+              {{ "automation.automationName" | translate }}
+              {{ "isNotValid" | translate }}
+            </div>
+            <div
+              class="form-error"
+              *ngIf="
+                form.get('name')!.touched &&
+                form.get('name')!.hasError('maxlength')
+              "
+            >
+              {{ "automation.automationName" | translate }}
+              {{
+                "maxLengthError"
+                  | translate : { max: Constant.validations.name.maxLength }
+              }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label>{{ "automation.description" | translate }}</label>
+            <textarea
+              rows="4"
+              class="form-control desc"
+              id="description"
+              formControlName="description"
+            ></textarea>
+            <div
+              class="form-error"
+              *ngIf="
+                form.get('description')!.touched &&
+                form.get('description')!.hasError('maxlength')
+              "
+            >
+              {{ "automation.description" | translate }}
+              {{
+                "maxLengthError"
+                  | translate
+                    : { max: Constant.validations.description.maxLength }
+              }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+    </form>
+  </div>
+  <div class="footer" *ngIf="form">
+    <div class="d-flex justify-content-end">
+      <button type="button" class="button-outline" (click)="onClose.emit()">
+        {{ "cancel" | translate }}
+      </button>
+      <button type="submit" class="button-primary ml-2" (click)="onSubmit()">
+        {{ "save" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -7,9 +7,11 @@ const PrivateRoutes = () => {
     <div>
       <div className="flex h-screen">
         <Sidenav />
-        <Header />
+        <div className="flex-1 flex flex-col gap-10">
+          <Header />
+          <Outlet />
+        </div>
       </div>
-      <Outlet />
     </div>
   );
 };

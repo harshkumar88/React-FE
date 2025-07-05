@@ -1,0 +1,53 @@
+<div class="entity-container">
+  <div class="entityFormContainer row" *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <!-- Event Category -->
+        <div class="form-group">
+          <label>Event Category <span class="text-danger">*</span></label>
+          <ng-select
+            id="value"
+            [items]="eventCategories"
+            bindLabel="key"
+            formControlName="eventCategory"
+            placeholder="Select a category"
+            [searchable]="false"
+            [clearable]="false"
+          >
+          </ng-select>
+        </div>
+
+        <!-- Event Name -->
+        <div class="form-group">
+          <label>Event Name <span class="text-danger">*</span></label>
+          <ng-select
+            id="value"
+            [items]="eventNames"
+            bindLabel="key"
+            bindValue="value"
+            placeholder="Select an event"
+            formControlName="eventName"
+            [clearable]="false"
+          >
+          </ng-select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer" *ngIf="form">
+    <div class="d-flex justify-content-end">
+      <button type="button" class="button-outline" (click)="onClose.emit()">
+        {{ "cancel" | translate }}
+      </button>
+      <button
+        type="submit"
+        class="button-primary ml-2"
+        (click)="onSubmit(); loadList()"
+      >
+        {{ "save" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

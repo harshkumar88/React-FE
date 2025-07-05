@@ -1,0 +1,57 @@
+<div class="entity-container">
+  <div>
+    Use this section to add a wait time between the previous action, event,
+    outcome and the next
+  </div>
+  <div class="entityFormContainer row" *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="d-flex gap-4 mt-8">
+        <!-- Time -->
+        <div class="form-group" style="flex: 0 0 47%">
+          <label>Time</label>
+          <ng-select
+            id="value"
+            [items]="timeList"
+            bindLabel="key"
+            formControlName="eventCategory"
+            placeholder="Select Time"
+            [searchable]="false"
+            [clearable]="false"
+          >
+          </ng-select>
+        </div>
+
+        <!-- Unit Name -->
+        <div class="form-group" style="flex: 0 0 47%">
+          <label>Unit</label>
+          <ng-select
+            id="value"
+            [items]="units"
+            bindLabel="key"
+            bindValue="value"
+            placeholder="Select Unit"
+            formControlName="eventName"
+            [clearable]="false"
+          >
+          </ng-select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer" *ngIf="form">
+    <div class="d-flex justify-content-end">
+      <button type="button" class="button-outline" (click)="onClose.emit()">
+        {{ "cancel" | translate }}
+      </button>
+      <button
+        type="submit"
+        class="button-primary ml-2"
+        (click)="onSubmit(); loadList()"
+      >
+        {{ "add wait" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

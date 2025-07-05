@@ -20,7 +20,7 @@
   @extend .button-base;
   background: $gradient-primary;
   border: 1px solid $primary;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 
   &:hover {
     background: $primary !important;
@@ -42,8 +42,8 @@
 // Tertiary button
 .button-tertiary {
   @extend .button-base;
-  background: #F5F7F9;
-  border: 1px solid #F5F7F9;
+  background: #f5f7f9;
+  border: 1px solid #f5f7f9;
   color: $primary-color;
 }
 
@@ -52,13 +52,13 @@
   @extend .button-base;
   background: $gradient-primary;
   border: 2px solid $accent-color;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 // Disabled button
 .button-disabled {
   @extend .button-base;
-  background: #EBEFF3;
+  background: #ebeff3;
   border: 1px solid $border-muted;
   color: $text-muted;
   opacity: 0.5;
@@ -69,15 +69,15 @@
   @extend .button-base;
   background: $gradient-danger;
   border: 1px solid $danger-color;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 // Warning button
 .button-warning {
   @extend .button-base;
   background: $gradient-warning;
-  border: 1px solid #F2797B;
-  color: #FFD0D6;
+  border: 1px solid #f2797b;
+  color: #ffd0d6;
 }
 
 // Link button
@@ -89,31 +89,26 @@
   text-decoration: underline;
 }
 
-
-
 .button-outline {
-
-
   @extend .button-base;
   background: $gradient-outline;
-  color: $dark !important;
+  // color: $dark !important;
   font-weight: $font-weight-semibold !important;
   font-size: $text-size !important;
   border-color: $border-muted !important;
   color: $text-primary !important;
 
   &:hover {
-    background: #F5F7F9 !important;
+    background: #f5f7f9 !important;
   }
 
   &:disabled {
     color: $info-color;
-    background: #EBEFF3 !important;
+    background: #ebeff3 !important;
 
     use {
-      fill: $info-color !important
+      fill: $info-color !important;
     }
-
   }
 
   &.show {

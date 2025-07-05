@@ -13,7 +13,6 @@ const Icon = ({ name, className = "w-5 h-5" }) => {
   );
 };
 
-
 const ToggleButton = ({ onClick, isFlipped }) => {
   return (
     <div className="toggle-button-wrapper px-2 pb-1">
@@ -63,7 +62,7 @@ export const Sidenav = () => {
     { name: "Journeys", link: ROUTES.JOURNEYS, icon: "journeys" },
     { name: "Campaigns", link: ROUTES.CAMPAIGNS, icon: "campaigns" },
     { name: "Dashboard", link: ROUTES.DASHBOARD, icon: "workflows" },
-    { name: "Automation", link: ROUTES.AUTOMATION, icon: "template" }
+    { name: "Automation", link: ROUTES.AUTOMATION, icon: "template" },
     // {
     //   name: "Settings",
     //   icon: "settings",
@@ -100,7 +99,9 @@ export const Sidenav = () => {
           </div>
           {isExpanded && (
             <div className="dropdown-section absolute left-full top-0 ml-2 hidden group-hover:block bg-[#1f2937] p-2 rounded shadow-md z-10">
-              {menu.children.map((child, cIdx) => renderMenu(child, `${key}-${cIdx}`))}
+              {menu.children.map((child, cIdx) =>
+                renderMenu(child, `${key}-${cIdx}`)
+              )}
             </div>
           )}
         </div>
@@ -125,13 +126,16 @@ export const Sidenav = () => {
 
   return (
     <aside
-      className={`h-screen sticky top-0 z-[1051] transition-all duration-300 bg-gray-900 sidenav-body-container ${
+      className={`h-screen sticky top-0 z-[1051] transition-all duration-300 bg-gray-900 sidenav-body-container flex flex-col items-start ${
         isExpanded ? "w-64 pr-2" : "w-16"
       }`}
     >
       <Logo isExpanded={isExpanded} />
-      <ToggleButton onClick={() => setIsExpanded(!isExpanded)} isFlipped={isExpanded} />
-      <div className="h-full overflow-y-auto sidenav-body">
+      <ToggleButton
+        onClick={() => setIsExpanded(!isExpanded)}
+        isFlipped={isExpanded}
+      />
+      <div className=" overflow-y-auto sidenav-body">
         {menus.map((menu, idx) => renderMenu(menu, idx))}
       </div>
     </aside>
