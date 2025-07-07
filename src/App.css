@@ -1,2 +1,22 @@
 @import "tailwindcss";
 
+.button-primary {
+      background-color: #ed7157;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #d65c42;
+      }
+
+      &:disabled {
+        background-color: #e0e0e0;
+        color: #a0a0a0;
+        cursor: not-allowed;
+      }
+    }
+

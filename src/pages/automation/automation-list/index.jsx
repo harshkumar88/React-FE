@@ -1,4 +1,3 @@
-// AutomationList.jsx
 import { useState } from "react";
 import Tabs from "./components/Tabs";
 import SearchBar from "./components/SearchBar";
@@ -47,6 +46,7 @@ const AutomationList = () => {
   const [records, setRecords] = useState(initialData);
   const [sortKey, setSortKey] = useState("name");
   const [sortDirection, setSortDirection] = useState("asc");
+  const [pageSize, setPageSize] = useState(5); // page size dropdown value
 
   const filteredData = records
     .filter((item) =>
@@ -58,6 +58,13 @@ const AutomationList = () => {
       return 0;
     });
 
+  const totalPages = Math.ceil(filteredData.length / pageSize);
+
+  const paginatedData = filteredData.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
+  );
+
   const handleSort = (key) => {
     if (sortKey === key) {
       setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
@@ -67,24 +74,54 @@ const AutomationList = () => {
     }
   };
 
+  const getPageRange = (currentPage, totalPages, delta = 2) => {
+    if (!totalPages || totalPages < 1) return [];
+
+    const range = [];
+    const left = Math.max(2, currentPage - delta);
+    const right = Math.min(totalPages - 1, currentPage + delta);
+
+    range.push(1);
+    if (left > 2) range.push("...");
+
+    for (let i = left; i <= right; i++) {
+      range.push(i);
+    }
+
+    if (right < totalPages - 1) range.push("...");
+    if (totalPages > 1) range.push(totalPages);
+
+    return range;
+  };
+
   return (
     <div className="p-6">
       <h2 className="text-xl font-bold mb-4">Automation</h2>
 
       <Tabs activeTab={tab} onTabChange={setTab} />
 
-      <div className="flex justify-between items-center my-4">
-        <SearchBar searchText={searchText} setSearchText={setSearchText} />
-        <button
-          className="bg-pink-500 text-white px-4 py-2 rounded"
-          onClick={() => setModalOpen(true)}
-        >
-          Create Automation
-        </button>
+      <div className="w-full my-4">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="w-full sm:w-1/2">
+          <SearchBar searchText={searchText} setSearchText={setSearchText} />
+        </div>
+
+        <div className="w-full sm:w-1/2">
+          <div className="actionsContainer flex justify-end">
+            <button
+              type="button"
+              className="button-primary"
+              onClick={() => setModalOpen(true)}
+            >
+              Create Automation
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
 
       <AutomationTable
-        data={filteredData}
+        data={paginatedData}
         onSort={handleSort}
         sortKey={sortKey}
         sortDirection={sortDirection}
@@ -92,8 +129,15 @@ const AutomationList = () => {
 
       <Pagination
         currentPage={currentPage}
-        totalPages={1}
+        totalPages={totalPages}
         onPageChange={setCurrentPage}
+        getPageRange={() => getPageRange(currentPage, totalPages)}
+        selectedPageSize={pageSize}
+        setSelectedPageSize={(size) => {
+          setPageSize(size);
+          setCurrentPage(1); // Reset to page 1 on page size change
+        }}
+        pageSizeOptions={[5, 10, 25, 50]}
       />
 
       {modalOpen && (

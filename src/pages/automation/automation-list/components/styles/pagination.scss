@@ -1,0 +1,74 @@
+@import "../../../../../../public//assets/scss/variables.scss";
+
+.page-number {
+  background-color: $white;
+  height: 1.5rem;
+  width: 1.5rem;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: $secondary;
+  border-radius: 4px;
+  margin-right: 0.625rem;
+
+  &.active {
+    background-color: $primary !important;
+    color: $white !important;
+  }
+
+  &:hover {
+    background-color: $gray-light;
+    color: $secondary;
+  }
+}
+
+
+.pagination-prv-btn {
+  border-right: 1px solid #CFD7DF;
+  padding-right: 1rem;
+  height: 100%;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:hover {
+
+
+    &:not(:disabled) {
+      .d-flex {
+        background-color: #F5F7F9;
+      }
+    }
+
+  }
+
+  .d-flex {
+    height: 100%;
+  }
+}
+
+.pagination-next-btn {
+  border-left: 1px solid #CFD7DF;
+  padding-left: 1rem;
+  height: 100%;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:hover {
+
+
+    &:not(:disabled) {
+      .d-flex {
+        background-color: #F5F7F9;
+      }
+    }
+
+  } 
+
+  .d-flex {
+    height: 100%;
+  }
+}
