@@ -1,0 +1,137 @@
+table {
+  color: #12344d;
+  border: none;
+  th .text {
+    color: #64707d;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  tr {
+    border-bottom: 1px solid rgba(207, 215, 223, 0.5);
+    td {
+      color: #12344d;
+      font-size: 0.875rem;
+      font-weight: 400;
+    }
+    &:last-child {
+      td:first-child {
+        border-bottom-left-radius: 0.5rem;
+      }
+      td:last-child {
+        border-bottom-right-radius: 0.5rem;
+      }
+    }
+  }
+  thead tr {
+    // border: 1px solid rgba(207, 215, 223, 0.5);
+    // border-radius: 0.5rem;
+    th:first-child {
+      border-top-left-radius: 0.5rem;
+    }
+    th:last-child {
+      border-top-right-radius: 0.5rem;
+    }
+  }
+}
+.cellValuePropertiesUsername {
+  display: flex;
+  gap: 0.625rem;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  .logo {
+    height: 2rem;
+    width: 2rem;
+    max-width: 2rem;
+    min-width: 2rem;
+    border-radius: 50%;
+    background: #cfd7df80;
+    border: 0.0625rem solid rgba(18, 52, 77, 0.16);
+    overflow: hidden;
+    img {
+      height: 2rem;
+      width: 2rem;
+      max-width: 2rem;
+      min-width: 2rem;  
+    }
+  }
+  .usernameContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .username {
+      color: #12344d;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    .usernamesub {
+      font-size: 0.75rem;
+      color: #64707d;
+      line-height: 1.125rem;
+    }
+  }
+}
+.cellValuePropertiesLinkWithLogo {
+  display: flex;
+  gap: 0.625rem;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  .link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    text-align: left;
+    color: #2c5cc5;
+    cursor: pointer;
+  }
+  .logo {
+    height: 2rem;
+    width: 2rem;
+    max-width: 2rem;
+    min-width: 2rem;
+    border-radius: 50%;
+    background: #cfd7df80;
+    border: 0.0625rem solid rgba(18, 52, 77, 0.16);
+    overflow: hidden;
+    img {
+      height: 2rem;
+      width: 2rem;
+      max-width: 2rem;
+      min-width: 2rem;
+  
+    }
+  }
+}
+
+.cellValuePropertiesCreatedBy {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+  .createdByName{
+    text-transform: capitalize;
+  }
+  .createdAt {
+    height: 1.25rem;
+    color: #64707d;
+    font-weight: 400;
+    margin-top: 0.25rem;
+  }
+}
+.form-check-input {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.w-5rem{
+  width: 5rem;
+}

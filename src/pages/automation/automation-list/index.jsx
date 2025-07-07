@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import AutomationTable from "./components/AutomationTable";
 import Pagination from "./components/Pagination";
 import CreateAutomationModal from "./components/CreateAutomationModel";
+import RenderActions from "./components/renderActions";
 
 const initialData = [
   {
@@ -35,6 +36,46 @@ const initialData = [
     updatedOn: "2025-06-25",
     assigned: "All Employees",
     status: "Scheduled",
+  },
+];
+
+const columnDetails = [
+  {
+    key: "name",
+    displayText: "Name",
+    sortable: true,
+  },
+  {
+    key: "createdBy",
+    displayText: "Created By",
+    sortable: true,
+  },
+  {
+    key: "startedOn",
+    displayText: "Started On",
+    cellValueProperties: { type: "date" },
+  },
+  {
+    key: "nextTrigger",
+    displayText: "Next Trigger",
+  },
+  {
+    key: "endsOn",
+    displayText: "Ends On",
+    cellValueProperties: { type: "date" },
+  },
+  {
+    key: "updatedOn",
+    displayText: "Updated On",
+    cellValueProperties: { type: "date" },
+  },
+  {
+    key: "assigned",
+    displayText: "Assigned",
+  },
+  {
+    key: "status",
+    displayText: "Status",
   },
 ];
 
@@ -101,30 +142,33 @@ const AutomationList = () => {
       <Tabs activeTab={tab} onTabChange={setTab} />
 
       <div className="w-full my-4">
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div className="w-full sm:w-1/2">
-          <SearchBar searchText={searchText} setSearchText={setSearchText} />
-        </div>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="w-full sm:w-1/2">
+            <SearchBar searchText={searchText} setSearchText={setSearchText} />
+          </div>
 
-        <div className="w-full sm:w-1/2">
-          <div className="actionsContainer flex justify-end">
-            <button
-              type="button"
-              className="button-primary"
-              onClick={() => setModalOpen(true)}
-            >
-              Create Automation
-            </button>
+          <div className="w-full sm:w-1/2">
+            <div className="actionsContainer flex justify-end">
+              <button
+                type="button"
+                className="button-primary"
+                onClick={() => setModalOpen(true)}
+              >
+                Create Automation
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
       <AutomationTable
         data={paginatedData}
         onSort={handleSort}
         sortKey={sortKey}
         sortDirection={sortDirection}
+        columnDetails={columnDetails}
+        showActions={true}
+        renderActions={(record) => <RenderActions record={record} />}
       />
 
       <Pagination
